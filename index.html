@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtmDTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es" >
+    <head>
+        <title>Sistema de Preinscripcion</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <meta http-equiv="Content-Type" content="text/html; windows-1252" />
+        <!-- includes usados para el calendario -->
+          <link href="css/calendario.css" rel="stylesheet" type="text/css" />
+          <script type="text/javascript" src="js/calendar.js"></script>
+          <script type="text/javascript" src="js/calendar-es.js"></script>
+          <script type="text/javascript" src="js/calendar-setup.js"></script>
+        <!-- hasta aqui los includes del calendario  -->
+        <script type="text/javascript" src="js/validacion.js" ></script>
+        <link href="css/estilo.css" rel="stylesheet" type="text/css" media="screen" />
+    </head>
+<body>
+    <div id="header">
+        <img id="header" src="img/header.png" alt="Imagen Cabecera de la Institucion" title="Imagen Cabecera de la Institucion" />
+    </div>
+    <div id="body">
+        <h1>Sistema de Preinscripción</h1>
+        <form action="guardar_datos.php" method="post" onsubmit="return validar()">
+            <fieldset>
+                <legend>Datos Personales</legend>
+        	<div>
+                    Cédula de Identidad:
+                    <select size="1" name="nacionalidad">
+                        <option>-</option>
+                        <option>V</option>
+                        <option>E</option>
+                    </select>
+                    <input type="text" name="cedula" id="cedula" onkeypress="return permite(event , 'num')" />
+                    Apellidos:
+                    <input type="text" name="apellidos" id="apellidos" size="30" onkeypress="return permite(event , 'car')" />
+                    Nombres:
+                    <input id="nombre" type="text" name="nombres" size="30" onkeypress="return permite(event , 'car')" />
+                </div>
+                <div>
+                    Fecha de Nacimiento:
+                    <input id="FecNac" size= "28" name="FecNac" class="for_txtInputFecha" type="text" value="" tabindex="2" readonly="readonly" />
+                    <img class="for_imgFecha" id="ImgFecNac" src="calendario/calendario.png" title="Seleccione fecha" alt="Imagen del Calendario" aling="top" />
+                    <!-- definicion de los calendario en el formulario -->
+                        <script type="text/javascript">
+                            Calendar.setup({inputField:"FecNac", button:"ImgFecNac"});
+                            Calendar.setup({inputField:"FecNac", eventName: "click", button:"ImgFecNac"});
+			            </script>
+                    <!-- hasta aqui definicion del calendario -->
+                    Lugar de Nacimiento:
+                    <input type="text" id="lugarnacimiento" name="lugarnacimiento" size="20" maxlength="30" onkeypress="return permite(event , 'car')" />
+                    Sexo:
+                    F
+                    <input type="radio" value="0" name="sexo" id="femenino" /> 
+                    M
+                    <input type="radio" name="sexo" value="1" id="masculino" />
+                </div>
+                <div>
+                    Estado Civil:
+                    <select size="1" name="estadocivil">
+                    	<option>-</option>
+                	<option>Soltero</option>
+                	<option>Casado</option>
+                	<option>Viudo</option>
+                	<option>Divorciado</option>
+                    </select>
+                    Edad:
+                    <input type="text" id="edad" name="T10" size="2" maxlength="2" onkeypress="return permite(event , 'num')" />
+                </div>
+                <div>
+                    Dirección:
+                    <input type="text" name="direccion" size="100" maxlength="100" />
+                </div>
+                <div>
+                    Ciudad:
+                    <input type="text" id="ciudad" name="ciudad" size="20" maxlength="25" onkeypress="return permite(event , 'car')" />
+                    Estado:
+                    <select size="1" name="estado">
+                    	<option>-</option>
+			<option>AMAZONAS</option>
+			<option>ANZOATEGUI</option>
+			<option>ARAGUA</option>
+			<option>APURE</option>
+			<option>BARINAS</option>
+			<option>BOLIVAR</option>
+			<option>CARABOBO</option>
+			<option>COJEDES</option>
+			<option>DELTA AMACURO</option>
+			<option>DISTRITO CAPITAL</option>
+			<option>FALCON</option>
+			<option>GUARICO</option>
+			<option>LARA</option>
+			<option>MERIDA</option>
+			<option>MIRANDA</option>
+			<option>MONAGAS</option>
+			<option>NUEVA ESPARTA</option>
+			<option>PORTUGUESA</option>
+			<option>SUCRE</option>
+			<option>TACHIRA</option>
+			<option>TRUJILLO</option>
+			<option>VARGAS</option>
+			<option>YARACUY</option>
+			<option>ZULIA</option>
+                    </select>
+                    Municipio:
+                    <input type="text" id="municipio" name="municipio" size="20" maxlength="25" onkeypress="return permite(event , 'car')" />
+                </div>
+                <div>
+                    Teléfono Habitación:
+                    <input type="text" name="codtelefono" size="4" maxlength="4" onkeypress="return permite(event , 'num')" />
+                    <input type="text" name="telefonohab" size="7" maxlength="7" onkeypress="return permite(event , 'num')" />
+                    Teléfono Móvil:
+                    <select size="1" name="codtelefonomovil">
+                    	<option>-</option>
+			<option>0416</option>
+			<option>0426</option>
+			<option>0414</option>
+			<option>0424</option>
+			<option>0412</option>
+                    </select>
+                    <input type="text" name="telefonomovil" size="7" maxlength="7" onkeypress="return permite(event , 'num')" />
+                    Teléfono Referencia:
+                    <input type="text" id="codtelefonoref" name="telefonor1" size="4" maxlength="4" onkeypress="return permite(event , 'num')" />
+                    <input type="text" id="telefonoref" name="telefonor2" size="7" maxlength="7" onkeypress="return permite(event , 'num')" />
+                </div>
+                <div>
+                    Trabaja:
+                    <select size="1" name="trabaja"  onchange="camp=document.getElementByName('nempresa'); if(this.value=='Sí'){camp.readonly='false'} else{camp.readonly='readonly'}">
+			<option>-</option>
+			<option>Si</option>
+			<option>No</option>
+                    </select>
+                    Nombre de la Empresa:
+                    <input type="text" name="nempresa" size="50" maxlength="50" onkeypress="return permite(event , 'car')" />
+                </div>
+                <div>
+                    Tipo de Empresa:
+                    <select size="1" name="tempresa">
+                    	<option>-</option>
+			<option>Publica</option>
+			<option>Privada</option>
+                    </select>
+                    Condición:
+                    <select size="1" name="condicion">
+			<option>-</option>
+			<option>Fijo</option>
+			<option>Contratado</option>
+			<option>Exporadico</option>
+                    </select>
+                    Cargo:
+                    <input type="text" name="cargo" size="30" onkeypress="return permite(event , 'car')" />
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Datos Academicos</legend>
+        	<div>
+                    Nombre de la Institución:
+                    <input type="text" name="institucion" size="40" maxlength="40" onkeypress="return permite(event , 'car')" />
+                    Tipo de Plantel:
+                    <select size="1" name="tplantel">
+                    	<option>-</option>
+			<option>Publica</option>
+			<option>Privada</option>
+                    </select>
+                    Régimen de Estudio:
+                    <select size="1" name="regimen">
+                    	<option>-</option>
+			<option>Diurno</option>
+			<option>Nocturno</option>
+			<option>Misión Sucre</option>
+                    </select>
+                </div>
+                <div>
+                    Título Obtenido:
+                    <select size="1" name="titulo">
+			<option>-</option>
+                        <option>Bachiller</option>
+			<option>T.S.U.</option>
+                    </select>
+                    <input type="text" name="titulo1" id="titulo1" size="30" maxlength="30" onkeypress="return permite(event , 'car')" />
+                    Fecha de Expedición: 
+                    <input id="FecExp" size= "28" name="FecExp" class="for_txtInputFecha" type="text" value="" tabindex="2" readonly="readonly" />
+                    <img class="for_imgFecha" id="ImgFecExp" src="calendario/calendario.png" alt="Imagen Calendario" title="Selecione fecha" />
+                    <!-- definicion de los calendario en el formulario -->
+                        <script type="text/javascript">
+                            Calendar.setup({inputField:"FecExp", button:"ImgFecExp"});
+                            Calendar.setup({inputField:"FecExp", eventName: "click", button: "ImgFecExp"});
+			</script>
+                    <!-- hasta aqui definicion del calendario -->
+                </div>
+                <div>
+                    Promoción:
+                    <select size="1" name="promocion">
+			<option>-</option>
+			<option>I</option>
+			<option>II</option>
+			<option>III</option>
+			<option>IV</option>
+			<option>V</option>
+			<option>VI</option>
+			<option>VII</option>
+			<option>VIII</option>
+			<option>IX</option>
+			<option>X</option>
+			<option>XI</option>
+			<option>XII</option>
+                    </select>
+                    Título Registrado:
+                    <select size="1" name="tituloregistrado">
+			<option>-</option>
+			<option>Si</option>
+                    	<option>No</option>
+                    </select>
+                </div>
+            </fieldset>
+
+<!-- Datos de Ingreso a la Institución -->
+            <fieldset>
+                <legend>Ingreso a la Institucion</legend>
+        	<div>
+                    Programa Nacional de Formación:
+                    <select size="1" name="pnf">
+			<option>-</option>
+			<option>Ingenieria en Agroalimentacion</option>
+			<option>Ingenieria en Construccion Civil</option>
+			<option>Ingenieria en Mecanica</option>
+                    </select>
+                    Modalidad de Ingreso:
+                    <select size="1" name="modalidad">
+			<option>-</option>
+			<option>Otro</option>
+			<option>Fundayacucho</option>
+                    </select>
+                    Lapso Académico:
+                    <select size="1" name="lacademico">
+			<option>-</option>
+			<option>2010-I</option>
+                    </select>
+                </div>
+                <div>
+                    Núcleo:
+                    <select size="1" name="nucleo">
+			<option>--</option>
+			<option>Mantecal</option>
+			<option>Elorza</option>
+                    </select>
+                    Fecha de Ingreso:
+                    <input id="idTabIngFecBeca" size= "28" name="idTabIngFecBeca" class="for_txtInputFecha" type="text" value="" tabindex="2" readonly="readonly" />
+                    <img class="for_imgFecha" id="idImgTabIngFecBeca" src="calendario/calendario.png" alt="Imagen Calendario" title="Selecione fecha" />
+                    <!-- definicion de los calendario en el formulario -->
+                        <script type="text/javascript">
+                            Calendar.setup({inputField:"idTabIngFecBeca", button:"idImgTabIngFecBeca"});
+                            Calendar.setup({inputField: "idTabIngFecBeca", eventName: "click", button: "idImgTabIngFecBeca"});
+			</script>
+                    <!-- hasta aqui definicion del calendario -->
+                </div>
+                <div>
+                    <p><strong>
+                    <span lang="ES" style="font-size: 10.0pt; font-family: Verdana; color: maroon; font-style: italic">
+                    EL ASPIRANTE CERTIFICA LA VALIDEZ Y VERACIDAD DE LA INFORMACIÓN</span></strong></p>
+                </div>
+            </fieldset>
+            <div id="submit">
+                <input type="submit" value="Registrar" name="enviar" onclick="this.disabled=true;this.value=’Enviando...’; this.form.submit()" style="font-weight:700" />
+            </div>
+        </form>
+    </div>
+    <div id="footer">
+        <p>
+            <a href="http://validator.w3.org/check?uri=referer">
+                <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+            </a>
+        </p>
+    </div>
+</body>
+</html>

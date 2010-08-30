@@ -1,0 +1,25 @@
+body{
+    margin: 0% 5% 5% 5%;
+    /*font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;*/
+    color: #444444;
+}
+
+body h1{
+    text-align: center;
+}
+
+#header img{
+    width:100%;
+}
+
+#body div{
+    margin: 1%;
+}
+#body div p{
+    text-align:center;
+}
+#body form fieldset{
+    margin: 1%;
+    border-color:blue;
+}
